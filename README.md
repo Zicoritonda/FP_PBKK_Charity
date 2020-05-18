@@ -14,8 +14,11 @@ Fitur yang terdapat pada website ini adalah:
 Pada website ini user dapat memeberi bantuan dengan jumlah dan kategori yang diinginkan.
  
 Berikut Merupakan screenshot fitur-fitur tersebut:
+
 ![Fitur 1](https://github.com/Zicoritonda/FP_PBKK_Charity/blob/master/sc/sc1.png)
+
 ![Fitur 2](https://github.com/Zicoritonda/FP_PBKK_Charity/blob/master/sc/sc2.png)
+
 ![Fitur 3](https://github.com/Zicoritonda/FP_PBKK_Charity/blob/master/sc/sc3.png)
 
 
