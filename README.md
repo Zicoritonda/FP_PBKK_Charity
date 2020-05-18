@@ -18,7 +18,9 @@ Berikut Merupakan screenshot fitur-fitur tersebut:
 ![Fitur 1](https://github.com/Zicoritonda/FP_PBKK_Charity/blob/master/sc/sc1.png)
 
 ![Fitur 2](https://github.com/Zicoritonda/FP_PBKK_Charity/blob/master/sc/sc2.png)
+Seperti gambar diatas, User dapat menambahkan jumlah form kategori bantuan yang diinginkan.
 
 ![Fitur 3](https://github.com/Zicoritonda/FP_PBKK_Charity/blob/master/sc/sc3.png)
+Gambar diatas menunjukan rekap bantuan yang telah diterima.
 
 
