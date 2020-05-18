@@ -1,0 +1,105 @@
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h1>CHARITY.ID</h1>
+  <p>Donasi dari Negeri, untuk Negeri</p> 
+</div>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="/">Charity</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button> 
+</nav>
+
+<div class="container" style="margin-top:30px">
+    <?php echo $this->tag->form(['index/submit','class'=>'form-group']); ?>
+    <div class="form-group">
+        <label for="nama">Nama</label>
+        <?php echo $this->tag->textField(['nama','class'=>'form-control']); ?>
+        <!-- <input type="nama" class="form-control" id="nama" placeholder="Nama"> -->
+    </div>
+    <div class="form-group">
+      <label>Tambah Donasi</label>
+      <button type="button" class="btn btn-default" id="addTemplate">+</button>
+      <script>
+        var count = 0;
+        document.getElementById('addTemplate').onclick = function(){
+          count++;
+          console.log("Create Element");
+          var div  = document.createElement('div');
+          div.innerHTML = `<button type="button" class="btn btn-danger" id="deleteTemplate`+count+`">-</button><p></p>
+                            <label>Kategory</label>
+                            <?php echo $this->tag->textField(['kategori[]','class' => 'form-control','multiple' => 'yes']); ?>
+                            <p></p>
+                            <label for="namabarang">Nama Barang</label>
+                            <?php echo $this->tag->textField(['namabarang[]','class' => 'form-control','multiple' => 'yes']); ?>
+                            <p></p>
+                            <!-- <input type="namabarang" class="form-control" id="namabarang"> -->
+                            <label for="jumlah">Jumlah</label>
+                            <?php echo $this->tag->textField(['jumlah[]','class' => 'form-control','multiple' => 'yes']); ?>
+                            <p></p>
+                            <!-- <input type="jumlah" class="form-control" id="jumlah" placeholder="Jumlah"> -->
+          `;
+          // div.innerHTML = document.getElementById('template1').innerHTML;
+          div.setAttribute("class", "form-group");
+          div.setAttribute("id", "template"+count);
+          var newScript = document.createElement("script");
+          var inlineScript = document.createTextNode(`document.getElementById('deleteTemplate`+count+`').onclick = function(){
+                                                        console.log("Delete Element");
+                                                        var element = document.getElementById(this.parentNode.id);
+                                                        element.parentNode.removeChild(element);
+                                                      }`);
+          newScript.appendChild(inlineScript); 
+          div.appendChild(newScript);
+          document.getElementById('form').appendChild(div);
+          console.log(document.getElementById("form").childElementCount);
+        };
+      </script>
+    </div>
+    <div id="form">
+    </div>
+    <script>
+      var t = document.createElement('input');
+      t.setAttribute("name","count");
+      t.setAttribute("type","hidden");
+      t.setAttribute("value",count);
+      document.getElementById('form').appendChild(t);
+    </script>
+    <?php echo $this->tag->submitButton(["Submit","class"=>"btn btn-primary"]); ?>
+    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+    </form>
+</div>
+<div class="container" style="margin-top:30px">
+  <h2 class="text-center">Daftar Sumbangan</h2>
+  <h3 class="text-center">Total Uang Terkumpul: Rp. <?php echo "{$uang}" ?></h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Kategori</th>
+        <th scope="col">Nama Barang</th>
+        <th scope="col">Jumlah</th>
+    <tbody>
+    <?php
+      $c = 1;
+      foreach($transaksis as $transaksi){
+        echo "<tr>";
+        echo "  <th scope=\"row\">{$c}</th>";
+        echo "  <td>{$transaksi->nama}</td>";
+        echo "  <td>{$transaksi->kategori}</td>";
+        echo "  <td>{$transaksi->namabarang}</td>";
+        echo "  <td>{$transaksi->jumlah}</td>";
+        echo "</tr>";
+        $c++;
+      }  
+    ?>
+    </tbody>
+  </table>
+  
+</div>
+
+<div class="container" style="margin-top:30px">
+  <div class="jumbotron text-center" style="margin-bottom:10">
+    <p>Footer</p>
+  </div>
+</div>
